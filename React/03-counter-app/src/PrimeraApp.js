@@ -2,9 +2,7 @@
 //import React, { Fragment } from 'react';
 import React from 'react';
 
-const PrimeraApp = () =>{
-
-    const saludo = 'Hola mundo';
+const PrimeraApp = ({saludo = "Hola mundo"}) =>{
 
     return (
         <>
