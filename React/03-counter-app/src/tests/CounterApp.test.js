@@ -6,6 +6,12 @@ import CounterApp from "../CounterApp";
 
 
 describe('Pruebas en <CounterApp/>', () => {
+    let wrapper = shallow(<CounterApp/>);
+    beforeEach(() => {
+        wrapper = shallow(<CounterApp/>);
+    })
+
+
     test('Debe de mostrar <CounterApp/> correctamente', () => {
         const value = 100;
         const wrapper = shallow(<CounterApp value = {value}/>);
@@ -18,6 +24,18 @@ describe('Pruebas en <CounterApp/>', () => {
         console.log(vdefecto);
         expect(vdefecto).toBe('100');
        
+    })
+
+    test('Debe de incrementar con el boton +1', () => {
+        wrapper.find('button').at(0).simulate('click');
+        const counterText = wrapper.find('p').text().trim();
+        expect (counterText).toBe('11');
+    })
+
+    test('Debe de decrementar con el boton -1', () => {
+        wrapper.find('button').at(2).simulate('click');
+        const counterText = wrapper.find('p').text().trim();
+        expect (counterText).toBe('9');
     })
     
 })
