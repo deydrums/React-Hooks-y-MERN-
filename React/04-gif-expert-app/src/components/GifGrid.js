@@ -7,19 +7,24 @@ export const GifGrid = ({category}) => {
     const {data:images, loading} = useFetchGifs(category);
     return (
         <>
-            <h3 className ="animate__animated animate__fadeIn">{category}</h3>
-            {loading && <p className ="animate__animated animate__flash">Loading</p>}
-            <div className ="card-grid">
-                
-                {
-                    images.map(img =>(
-                        <GifGridItem 
-                            key = {img.id}
-                            {...img}
-                        />
-                    ))
-                }
-            </div>
+            <section className="portafolio">
+                <div className="contenedor">
+                    <h2 className="titulo animate__animated animate__fadeIn">{category}</h2>
+                    <div className="galeria-port">
+                    {loading && <p className ="animate__animated animate__flash">Loading</p>}
+
+                        
+                        {
+                            images.map(img =>(
+                                <GifGridItem 
+                                    key = {img.id}
+                                    {...img}
+                                />
+                            ))
+                        }
+                    </div>
+                    </div>
+                </section>
         </>
     )
 }

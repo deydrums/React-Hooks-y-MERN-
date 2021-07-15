@@ -20,16 +20,16 @@ const GifExpertApp = () =>{
             {/* <AddCategory categories = {categories} setCategories = {setCategories}/> */}
             <hr></hr>
             {/* <button onClick={handleAdd}>Agregar</button> */}
-            <ol>
-                {
-                    categories.map(category => (
-                        <GifGrid
-                            category = {category}
-                            key = {category}
-                        />
-                    ))
-                }
-            </ol>
+
+            {
+                categories.map(category => (
+                    <GifGrid
+                        category = {category}
+                        key = {category}
+                    />
+                ))
+            }
+
         </>
     );
       

@@ -1,37 +1,99 @@
-*{
-    font-family: Helvetica, Arial, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    padding: 10px;
+body {
+    font-family: 'open sans';
 }
 
-input{
-    color: grey;
-    width: 100%;
-    font-size: 1.2rem;
-}
-
-.card{
-    align-content: center;
-    border: 1px solid grey;
-    border-radius: 6px;
-    margin-bottom: 10px;
-    margin-right: 10px;
+.contenedor {
+    padding: 60px 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
     overflow: hidden;
 }
 
-.card p {
-    padding: 5px;
+.titulo {
+    color: #642a73;
+    font-size: 30px;
     text-align: center;
+    margin-bottom: 60px;
 }
 
-.card img{
-    max-height: 170px;
+
+.portafolio{
+    background: #f2f2f2;
 }
 
-.card-grid{
+.galeria-port{
     display: flex;
-    flex-direction: row;
+    justify-content: space-evenly;
     flex-wrap: wrap;
+}
+
+.imagen-port{
+    width:20%;
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.imagen-port > img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display: block;
+}
+
+.hover-galeria{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform: scale(0);
+    background: hsla(273,91%,27%,0.7);
+    transition: transform 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+}
+
+.hover-galeria img{
+    width:50px;
+}
+
+.hover-galeria p{
+    color: #fff;
+}
+
+.imagen-port:hover .hover-galeria{
+    transform: scale(1);
+}
+
+
+@media screen and (max-width:900px){
+   
+    /* Galeria */
+
+    .imagen-port{
+        width: 40%;
+    }
+
+
+}
+
+@media screen and (max-width:500px){
+   
+    /* Galeria */
+
+    .imagen-port{
+        width:95%;
+    }
+
 }
