@@ -1,33 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { useFetchGifs } from '../hooks/useFetchGifs';
+//import { getGifs } from '../helpers/getGifs';
 import { GifGridItem } from './GifGridItem';
 
 export const GifGrid = ({category}) => {
     
-    const [images, setimages] = useState([]);
+    // const [images, setimages] = useState([]);
+    const {loading} = useFetchGifs();
+    console.log(loading);
 
-    useEffect(() =>{
-        getGifs();
-    },[])
 
-    const getGifs = async()=>{
-        const url = 'https://api.giphy.com/v1/gifs/search?q=ironman&limit=10&api_key=rabMybUsDF3yxKx6viMjjcRhAIEXcUe5';
-        const resp = await fetch(url);
-        const { data } = await resp.json();
-        const gifs = data.map(img => {
-            return{
-                id: img.id,
-                title: img.title,
-                url: img.images?.downsized_medium.url
-            }
-        })
-        console.log(gifs);
-        setimages(gifs);
-    }
+
+    // useEffect(() =>{
+    //     //getGifs(category).then(imgs => setimages(imgs));
+    //     getGifs(category).then(setimages);
+    // },[category])
 
     return (
         <>
             <h3>{category}</h3>
-            <div className ="card-grid">
+            {loading ? 'Cargando...' : 'Data Cargada'}
+            {/* <div className ="card-grid">
                 
                 {
                     images.map(img =>(
@@ -37,7 +30,7 @@ export const GifGrid = ({category}) => {
                         />
                     ))
                 }
-            </div>
+            </div> */}
         </>
     )
 }
