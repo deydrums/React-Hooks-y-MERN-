@@ -210,6 +210,13 @@ footer{
         margin-top: 0px;
         width: 100%;
     }
+
+    .textos-header h2{
+        font-size: 23px;
+        margin-bottom: 10px;
+    }
+
+
     .imagen-port{
         width:95%;
     }
