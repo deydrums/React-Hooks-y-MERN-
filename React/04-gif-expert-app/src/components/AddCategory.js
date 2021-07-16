@@ -5,9 +5,11 @@ export const AddCategory = ({setCategories}) => {
 //export const AddCategory = ({categories, setCategories}) => {
 
     const [inputValue, setInputValue] = useState('');
+    
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
     }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if(inputValue.trim().length > 2){
@@ -20,12 +22,14 @@ export const AddCategory = ({setCategories}) => {
 
     return (
             <form onSubmit={handleSubmit}>
+                
                 <input 
                     type ="text"
                     value = {inputValue}
                     placeholder="Buscar..."
                     onChange={handleInputChange} 
                 />
+                <p>{inputValue}</p>
             </form>
     )
 }

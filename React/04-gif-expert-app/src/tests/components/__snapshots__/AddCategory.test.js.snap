@@ -10,5 +10,6 @@ exports[`Pruebas en el componente <AddCategory></AddCategory> Debe de mostrarse 
     type="text"
     value=""
   />
+  <p />
 </form>
 `;
