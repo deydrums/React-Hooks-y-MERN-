@@ -3,9 +3,13 @@
 exports[`Pruebas en <GifGridItem></GifGridItem> Debe de mostrar el componente correctamente 1`] = `
 <a
   className="imagen-port animate__animated animate__fadeIn"
+  href="http://github.com/"
   target="_blank"
 >
-  <img />
+  <img
+    alt="Un titulo"
+    src="http://github.com/"
+  />
   <div
     className="hover-galeria"
   >
