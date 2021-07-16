@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
@@ -19,10 +19,19 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
+
     <title>GifExpertApp</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <header>
+      <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+              style="height: 100%; width: 100%;">
+              <path d="M0.00,49.99 C150.00,150.00 349.20,-49.99 500.00,49.99 L500.00,150.00 L0.00,150.00 Z"
+                  style="stroke: none; fill: rgb(255, 255, 255);"></path>
+          </svg></div>
+    </header>
     <main>
     <div id="root"></div>
     <!--
@@ -37,4 +46,23 @@
     -->
   </body>
 </main>
+  <footer>
+    <div class="contenedor-footer">
+        <div class="content-foo">
+            <h4>Linkedin</h4>
+            <a href="https://www.linkedin.com/in/davgar100/">David Garcia</a>
+        </div>
+        <div class="content-foo">
+            <h4>Email</h4>
+            <p>dagarcia100@gmail.com</p>
+        </div>
+        <div class="content-foo">
+            <h4>Web</h4>
+            <a href="https://www.deydrums.com" target="_blank">deydrums.com</a>
+        </div>
+    </div>
+    
+    <h2 class="titulo-final">&copy;David Garcia</h2>
+    <p class = "curso"> React: De cero a experto de Fernando Herrera</p>
+  </footer>
 </html>

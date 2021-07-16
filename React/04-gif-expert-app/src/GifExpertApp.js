@@ -15,10 +15,14 @@ const GifExpertApp = () =>{
 
     return (
         <>
-            <h2>GifExpertApp</h2>
-            <AddCategory setCategories = {setCategories}/>
+            <section class="textos-header">
+                <h1>GifExpertApp</h1>
+                <h2>Busca cualquier gif en nuestra web</h2>
+                <AddCategory setCategories = {setCategories}/>
+            </section>
+
+            
             {/* <AddCategory categories = {categories} setCategories = {setCategories}/> */}
-            <hr></hr>
             {/* <button onClick={handleAdd}>Agregar</button> */}
 
             {

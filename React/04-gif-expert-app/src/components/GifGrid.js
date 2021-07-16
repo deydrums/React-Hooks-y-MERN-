@@ -7,6 +7,7 @@ export const GifGrid = ({category}) => {
     const {data:images, loading} = useFetchGifs(category);
     return (
         <>
+        <hr></hr>
             <section className="portafolio">
                 <div className="contenedor">
                     <h2 className="titulo animate__animated animate__fadeIn">{category}</h2>
