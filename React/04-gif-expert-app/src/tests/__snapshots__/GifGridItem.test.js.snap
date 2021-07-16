@@ -8,6 +8,7 @@ exports[`Pruebas en <GifGridItem></GifGridItem> Debe de mostrar el componente co
 >
   <img
     alt="Un titulo"
+    className="gif"
     src="http://github.com/"
   />
   <div

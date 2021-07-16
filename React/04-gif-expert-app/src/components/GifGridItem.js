@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export const GifGridItem = ({title,url}) => {
     return (
             <a className="imagen-port animate__animated animate__fadeIn" href={url} target="_blank">
-                <img src={url} alt={title} />
+                <img className = 'gif' src={url} alt={title} />
                 <div className="hover-galeria">
                     <img src ="/images/icono1.png" />
                     <p>Abrir</p>
