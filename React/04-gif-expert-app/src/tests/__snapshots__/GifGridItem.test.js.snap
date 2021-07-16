@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <GifGridItem></GifGridItem> Debe de mostrar el componente correctamente 1`] = `
+<a
+  className="imagen-port animate__animated animate__fadeIn"
+  target="_blank"
+>
+  <img />
+  <div
+    className="hover-galeria"
+  >
+    <img
+      src="/images/icono1.png"
+    />
+    <p>
+      Abrir
+    </p>
+  </div>
+</a>
+`;
