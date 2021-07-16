@@ -72,7 +72,7 @@ header {
 
 }
 
-
+/*Portafilio */
 .portafolio{
     background: #f2f2f2;
 }
@@ -205,9 +205,32 @@ footer{
 @media screen and (max-width:500px){
    
     /* Galeria */
-
+    .textos-header{
+        height: 200px;
+        margin-top: 0px;
+        width: 100%;
+    }
     .imagen-port{
         width:95%;
     }
+    /* Footer */
 
+    .contenedor-footer{
+        flex-direction: column;
+    }
+    .content-foo{
+        margin-bottom:20px;
+        text-align:center;
+    }
+    .content-foo h4{
+        border: none;
+    }
+    .content-foo p{
+        color: #ccc;
+        padding-bottom:20px;
+    }
+
+    .titulo-final{
+        font-size:20px;
+    }
 }

@@ -15,7 +15,7 @@ const GifExpertApp = () =>{
 
     return (
         <>
-            <section class="textos-header">
+            <section className="textos-header">
                 <h1>GifExpertApp</h1>
                 <h2>Busca cualquier gif en nuestra web</h2>
                 <AddCategory setCategories = {setCategories}/>
