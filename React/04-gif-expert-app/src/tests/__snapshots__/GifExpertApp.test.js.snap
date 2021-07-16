@@ -41,5 +41,9 @@ exports[`Pruebas en el componente <GifExpertApp></GifExpertApp> Debe de mostrars
       setCategories={[Function]}
     />
   </section>
+  <GifGrid
+    category="One Punch"
+    key="One Punch"
+  />
 </Fragment>
 `;
