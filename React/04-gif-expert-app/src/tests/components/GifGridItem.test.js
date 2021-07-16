@@ -1,6 +1,6 @@
 // npm run test
 
-import { GifGridItem } from "../components/GifGridItem";
+import { GifGridItem } from "../../components/GifGridItem";
 import { shallow } from "enzyme";
 import React from 'react'
 
