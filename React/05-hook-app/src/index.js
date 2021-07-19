@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { CallbackHook } from './components/06-memos/CallbackHook';
+import { Padre } from './components/07-tarea-memo/Padre';
 //import { SimpleForm } from './components/02-useEffect/SimpleForm';
 // import { HookApp } from './HookApp';
 //import { CounterApp } from './components/01-useState/CounterApp';
@@ -12,12 +12,13 @@ import { CallbackHook } from './components/06-memos/CallbackHook';
 //import { Layout } from './components/05-useLayoutEffect/Layout';
 //import { Memorize } from './components/06-memos/Memorize';
 //import { MemoHook } from './components/06-memos/MemoHook';
+//import { CallbackHook } from './components/06-memos/CallbackHook';
 
 
 //    "start": "set BROWSER=chrome&& react-scripts start",
 
 ReactDOM.render(
-    <CallbackHook />,
+    <Padre />,
   document.getElementById('root')
 );
 
