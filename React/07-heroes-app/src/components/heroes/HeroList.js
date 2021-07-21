@@ -7,7 +7,7 @@ export const HeroList = ({publisher}) => {
     const heroes = getHeroesByPublisher(publisher);
 
     return (
-        <div className="cartas">
+        <div className="content-cards">
             {
             heroes.map(hero =>(
                 <HeroCard 

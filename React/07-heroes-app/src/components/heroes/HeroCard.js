@@ -10,17 +10,24 @@ export const HeroCard = ({
     characters
 }) => {
     return (
-
-        <div class="card m-2">
-        <img src={`./assets/heroes/${id}.jpg`} className="img img-responsive" alt={superhero}/>
-            <div class="card-body">
-            <h5 class="card-title">{superhero}</h5>
-            <p class="card-text">{alter_ego}</p>
-            <p class="card-text">{first_appearance}</p>
-            <Link to={`./hero/${id}`}>
-                Más...
-            </Link>
+        <Link to={`./hero/${id}`} className="my-card">
+            <img src={`./assets/heroes/${id}.jpg`} className="img img-responsive" alt={superhero}/>
+            <div className="profile-name">{superhero}</div>
+            <div className="profile-position">{alter_ego}</div>
+            <div className="profile-overview">
+                <div className="profile-overview">
+                    <div className="row">
+                        <div className="col-ms-4">
+                            <h3>{publisher}</h3>
+                            <p>Primera aparición: <br />{first_appearance}</p>
+                            {
+                                (alter_ego !== characters)
+                                && <p>{characters}</p>
+                            }
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </Link>
     )
 }
