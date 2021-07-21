@@ -8,7 +8,7 @@ export const HeroList = ({publisher}) => {
     //const heroes = getHeroesByPublisher(publisher);
 
     return (
-        <div className="content-cards">
+        <div className="content-cards animate__animated animate__fadeIn">
             {
             heroes.map(hero =>(
                 <HeroCard 

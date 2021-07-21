@@ -30,7 +30,7 @@ export const HeroScreen = () => {
 
     return (
         <div className = "container container-heroe">
-            <div className = "container-img">
+            <div className = "container-img animate__animated animate__fadeIn">
                 <img
                     src = {`../assets/heroes/${heroeId}.jpg`}
                     alt = {superhero}
