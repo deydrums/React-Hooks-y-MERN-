@@ -13,7 +13,6 @@ describe('Pruebas en <RealExampleRef/>', () => {
     test('Debe mostrare el componente <MultipleCustomHooks/>', () => {
         const button = wrapper.find('button');
         button.simulate('click');
-        console.log(wrapper.find('MultipleCustomHooks'));
         expect(wrapper.find('MultipleCustomHooks').exists()).toBe(true);
 
         //expect(wrapper.find('p').text().trim()).toBe(value);
