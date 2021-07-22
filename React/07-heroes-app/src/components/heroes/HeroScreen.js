@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react'
 import { Redirect, useHistory, useParams } from 'react-router-dom';
+import { heroImages } from '../../helpers/heroImages';
 import { getHeroesById } from '../../selectors/getHeroById';
 // import batman from '../../assets/heroes/dc-batman.jpg'; //Recurso estatico
-const heroImages = require.context('../../assets/heroes', true);
 
 export const HeroScreen = () => {
     const history = useHistory();
