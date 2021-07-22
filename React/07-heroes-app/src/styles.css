@@ -240,6 +240,31 @@ nav{
 .container-imgs-search{
     width: 70%;
 }
+
+.button-search{
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}
+@media screen and (max-width:800px){
+
+    
+    .container-info{
+        width: 90%;
+        margin: 0px;
+        margin-bottom: 30px;
+    }
+
+    .container-search{
+        width: 100%;
+    }
+    .container-imgs-search{
+        width: 100%;
+        margin: 30px;
+    }
+
+}
+
 @media screen and (max-width:400px){
 
     
