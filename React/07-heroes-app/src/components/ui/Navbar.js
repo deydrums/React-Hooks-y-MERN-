@@ -21,7 +21,7 @@ export const Navbar = () => {
                     <img src={loginImages(`./logo.svg`).default} className="App-logo navbar-logo" alt="logo" />
                     <Link 
                         className="navbar-brand" 
-                        to="/"
+                        to="./"
                     >
                         HeroesApp
                     </Link>
@@ -37,7 +37,7 @@ export const Navbar = () => {
                                 activeClassName="active"
                                 className="nav-item nav-link" 
                                 exact
-                                to="/marvel"
+                                to="./marvel"
                             >
                                 Marvel
                             </NavLink>
@@ -47,7 +47,7 @@ export const Navbar = () => {
                                 activeClassName="active"
                                 className="nav-item nav-link" 
                                 exact
-                                to="/dc"
+                                to="./dc"
                             >
                                 DC
                             </NavLink>
@@ -58,7 +58,7 @@ export const Navbar = () => {
                                 activeClassName="active"
                                 className="nav-item nav-link" 
                                 exact
-                                to="/search"
+                                to="./search"
                             >
                                 Buscar
                             </NavLink>
