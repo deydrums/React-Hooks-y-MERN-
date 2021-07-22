@@ -1,10 +1,25 @@
-import React from 'react'
+import React, { useContext, useReducer } from 'react'
+import { AuthContext } from '../../auth/AuthContext';
+import { authReducer } from '../../auth/authReducer';
+import { types } from '../../types/types';
 import logo from './logo.svg';
 
 export const LoginScreen = ({history}) => {
 
+    const {dispatch} = useContext(AuthContext);
+
     const handleLogin = () => {
+        const action = {
+            type: types.login,
+            payload: {
+                name: 'Invitado',
+                email: 'invitado@invitado.com'
+            }
+        };
+        //Dispatch
+        dispatch(action);
         history.replace('/');
+
     };
 
     return (

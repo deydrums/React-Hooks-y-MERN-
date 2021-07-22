@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext, useReducer } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { AuthContext } from '../../auth/AuthContext';
 import logo from '../login/logo.svg';
 
 export const Navbar = () => {
+    const {user:{name, email}} = useContext(AuthContext);
     return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
@@ -53,7 +55,8 @@ export const Navbar = () => {
                         </div>
 
                         <div className="navbar-nav navbar-right">
-                        
+
+                            <span className="nav-item nav-link text-info">{email}</span>
                             <NavLink 
                             activeClassName="active"
                             className="nav-item nav-link" 
