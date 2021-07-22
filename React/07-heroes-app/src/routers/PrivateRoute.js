@@ -8,7 +8,11 @@ export const PrivateRoute = ({
     ...rest
 }) => {
 
-    localStorage.setItem('lastPath',rest.location.pathname);
+    if(rest.location.search != ''){
+        localStorage.setItem('lastPath',rest.location.pathname + rest.location.search);
+    }else{
+        localStorage.setItem('lastPath',rest.location.pathname);
+    }
     return (
         <Route {...rest}
             component = { (props)=>(
