@@ -32,6 +32,26 @@
     margin: 0;
 }
 
+.App-logo {
+    height: 10vmin;
+    pointer-events: none;
+    margin: 10px;
+}
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+@keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+
 .login:hover {
     transform: scale(1.01);
 }
@@ -56,7 +76,6 @@
     border: none !important;
     font-size: 23px;
     transition: all 0.3s linear;
-
 }
 
 .login-button:hover {
@@ -212,7 +231,7 @@
 .container-imgs-search{
     width: 70%;
 }
-@media screen and (max-width:900px){
+@media screen and (max-width:400px){
 
     
     .container-img{
@@ -249,7 +268,29 @@
 
     .login{
         width: 45vh;
-        height: 80vh;
+        height: 73vh;
         background-color: rgba(255, 255, 255, 0.507);
     }
+
+    
+    .login>h1{
+        font-size: 50px;
+        font-weight: 300;
+    }
+    .App-logo {
+        height: 30vmin;
+        margin: 20px;
+    }
+
+    .login-button {
+        width: 250px;
+        height: 50px;
+    }
+
+    .footer-login{
+        position: absolute;
+        bottom: 0%;
+        margin:0px !important;
+    }
+    
 }

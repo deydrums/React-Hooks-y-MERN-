@@ -1,4 +1,5 @@
 import React from 'react'
+import logo from './logo.svg';
 
 export const LoginScreen = ({history}) => {
 
@@ -11,7 +12,7 @@ export const LoginScreen = ({history}) => {
         <div className="header" id="inicio">
             <div className="login">
                 <h1>HeroesApp</h1>
-                <hr/>
+                <img src={logo} className="App-logo" alt="logo" />
                 <button
                     className="login-button"
                     onClick={handleLogin}
