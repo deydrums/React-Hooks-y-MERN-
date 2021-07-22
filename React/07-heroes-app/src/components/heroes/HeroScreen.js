@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react'
 import { Redirect, useHistory, useParams } from 'react-router-dom';
 import { getHeroesById } from '../../selectors/getHeroById';
+// import batman from '../../assets/heroes/dc-batman.jpg'; //Recurso estatico
+const heroImages = require.context('../../assets/heroes', true);
 
 export const HeroScreen = () => {
     const history = useHistory();
@@ -32,7 +34,9 @@ export const HeroScreen = () => {
         <div className = "container container-heroe">
             <div className = "container-img animate__animated animate__fadeIn">
                 <img
-                    src = {`../assets/heroes/${heroeId}.jpg`}
+                    // src = {`../assets/heroes/${heroeId}.jpg`} //Desde public/assets
+                    // src = {batman} // Un import
+                    src={heroImages(`./${heroeId}.jpg`).default}
                     alt = {superhero}
                 />
             </div>
