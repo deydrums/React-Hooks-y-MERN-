@@ -7,15 +7,24 @@ export const LoginScreen = ({history}) => {
     };
 
     return (
-        <div className="container mt-5">
-            <h1>Login</h1>
-            <hr/>
-            <button
-                className="btn btn-primary"
-                onClick={handleLogin}
-            >
-                Login
-            </button>
+        <>
+        <div className="header" id="inicio">
+            <div className="login">
+                <h1>HeroesApp</h1>
+                <hr/>
+                <button
+                    className="login-button"
+                    onClick={handleLogin}
+                >
+                    Entrar
+                </button>
+
+            </div>
+            <footer className="footer-login">Powered by <a href="http://deydrums.com">David Garcia</a></footer>
+
         </div>
+
+
+        </>
     )
 }
