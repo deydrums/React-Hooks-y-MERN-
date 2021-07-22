@@ -1,8 +1,7 @@
 import React, { useContext, useReducer } from 'react'
 import { AuthContext } from '../../auth/AuthContext';
-import { authReducer } from '../../auth/authReducer';
+import { loginImages } from '../../helpers/loginImages';
 import { types } from '../../types/types';
-import logo from './logo.svg';
 
 export const LoginScreen = ({history}) => {
 
@@ -29,7 +28,8 @@ export const LoginScreen = ({history}) => {
         <div className="header" id="inicio">
             <div className="login">
                 <h1>HeroesApp</h1>
-                <img src={logo} className="App-logo" alt="logo" />
+                {/* <img src={logo} className="App-logo" alt="logo" /> */}
+                <img src={loginImages(`./logo.svg`).default} className="App-logo" alt="logo" />
                 <button
                     className="login-button"
                     onClick={handleLogin}

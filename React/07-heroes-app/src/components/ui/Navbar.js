@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
 import { Link, NavLink, useHistory } from 'react-router-dom';
 import { AuthContext } from '../../auth/AuthContext';
+import { loginImages } from '../../helpers/loginImages';
 import { types } from '../../types/types';
-import logo from '../login/logo.svg';
-
 
 export const Navbar = () => {
     const history = useHistory();
@@ -18,7 +17,8 @@ export const Navbar = () => {
     return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
-                    <img src={logo} className="App-logo navbar-logo" alt="logo" />
+                    {/* <img src={logo} className="App-logo navbar-logo" alt="logo" /> */}
+                    <img src={loginImages(`./logo.svg`).default} className="App-logo navbar-logo" alt="logo" />
                     <Link 
                         className="navbar-brand" 
                         to="/"
