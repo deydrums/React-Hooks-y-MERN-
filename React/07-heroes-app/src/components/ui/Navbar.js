@@ -1,15 +1,17 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import logo from '../login/logo.svg';
 
 export const Navbar = () => {
     return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
+                    <img src={logo} className="App-logo navbar-logo" alt="logo" />
                     <Link 
                         className="navbar-brand" 
                         to="/"
                     >
-                        Asociaciones
+                        HeroesApp
                     </Link>
 
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"

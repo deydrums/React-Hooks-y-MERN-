@@ -37,6 +37,15 @@
     pointer-events: none;
     margin: 10px;
 }
+
+.navbar-logo{
+    height: 6vmin;
+}
+
+nav{
+    box-shadow: 0px 0px 25px rgba(58, 43, 1, 0.966);
+}
+
 @media (prefers-reduced-motion: no-preference) {
     .App-logo {
       animation: App-logo-spin infinite 20s linear;
@@ -292,5 +301,9 @@
         bottom: 0%;
         margin:0px !important;
     }
-    
+    .navbar-logo{
+        height: 10vmin;
+        margin:0 !important;
+        margin-right:0;
+    }
 }
