@@ -1,10 +1,20 @@
-import React, { useContext, useReducer } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import React, { useContext } from 'react';
+import { Link, NavLink, useHistory } from 'react-router-dom';
 import { AuthContext } from '../../auth/AuthContext';
+import { types } from '../../types/types';
 import logo from '../login/logo.svg';
 
+
 export const Navbar = () => {
-    const {user:{name, email}} = useContext(AuthContext);
+    const history = useHistory();
+
+    const {user:{name, email},dispatch} = useContext(AuthContext);
+
+    const handleLogout = () => {
+        dispatch({type: types.logout,});
+        history.replace('./login');
+    };
+
     return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
@@ -57,14 +67,12 @@ export const Navbar = () => {
                         <div className="navbar-nav navbar-right">
 
                             <span className="nav-item nav-link text-info">{email}</span>
-                            <NavLink 
-                            activeClassName="active"
-                            className="nav-item nav-link" 
-                            exact
-                            to="/login"
+                            <a 
+                            className="nav-item nav-link logout" 
+                            onClick={handleLogout}
                             >
                                 Logout
-                            </NavLink>
+                            </a>
                         </div>
                     </div>
                 </div>
