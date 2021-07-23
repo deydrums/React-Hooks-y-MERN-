@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en HeroScreen Debe de mostrar un hero si el parametro existe y se encuetra 1`] = `
+<div
+  className="container container-heroe"
+>
+  <div
+    className="container-img animate__animated animate__fadeIn"
+  >
+    <img
+      alt="Captain America"
+    />
+  </div>
+  <div
+    className="container-info"
+  >
+    <h3
+      className="mt-2"
+    >
+      Captain America
+    </h3>
+    <h5
+      className="mt-2"
+    >
+      Datos
+    </h5>
+    <ul
+      className="list-group list-group-flush"
+    >
+      <li
+        className="list-group-item"
+      >
+        <span
+          className="badge bg-secondary m-1"
+        >
+          Nombre original: 
+        </span>
+        Steve Rogers
+      </li>
+      <li
+        className="list-group-item"
+      >
+        <span
+          className="badge bg-secondary m-1"
+        >
+          Editorial: 
+        </span>
+        Marvel Comics
+      </li>
+      <li
+        className="list-group-item"
+      >
+        <span
+          className="badge bg-secondary m-1"
+        >
+          Por primera vez en: 
+        </span>
+         
+        Captain America Comics #1
+      </li>
+    </ul>
+    <h5
+      className="mt-2"
+    >
+      Nombres
+    </h5>
+    <p
+      className="list-group-item"
+    >
+       
+      Steve Rogers
+    </p>
+    <button
+      className="btn btn-outline-primary mibutton"
+      onClick={[Function]}
+    >
+      Volver
+    </button>
+  </div>
+</div>
+`;
