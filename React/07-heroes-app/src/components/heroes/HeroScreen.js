@@ -4,8 +4,8 @@ import { heroImages } from '../../helpers/heroImages';
 import { getHeroesById } from '../../selectors/getHeroById';
 // import batman from '../../assets/heroes/dc-batman.jpg'; //Recurso estatico
 
-export const HeroScreen = () => {
-    const history = useHistory();
+export const HeroScreen = ({history}) => {
+    //const history = useHistory();
 
     const {heroeId} = useParams();
     
