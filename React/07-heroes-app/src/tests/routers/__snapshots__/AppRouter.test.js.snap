@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en AppRouter Debe de mostrar el login si no se esta autenticado 1`] = `
+<div>
+  <div
+    className="header"
+    id="inicio"
+  >
+    <div
+      className="login"
+    >
+      <h1>
+        HeroesApp
+      </h1>
+      <img
+        alt="logo"
+        className="App-logo"
+        src="logo.svg"
+      />
+      <button
+        className="login-button"
+        onClick={[Function]}
+      >
+        Entrar
+      </button>
+    </div>
+    <footer
+      className="footer-login"
+    >
+      Powered by 
+      <a
+        href="http://deydrums.com"
+      >
+        David Garcia
+      </a>
+    </footer>
+  </div>
+</div>
+`;
