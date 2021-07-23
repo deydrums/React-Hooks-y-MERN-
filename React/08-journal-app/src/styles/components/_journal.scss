@@ -36,10 +36,27 @@
     }
 }
 
-.journal__entries{
-    flex: 1 1 auto;
-    margin-top:30px;
-    overflow:scroll;
+.journal__entries {
+    margin-top: 30px;
+    overflow: auto;
+ 
+    &::-webkit-scrollbar {
+        -webkit-appearance: none;
+        background-color: #ccc;
+    }
+ 
+    &::-webkit-scrollbar:vertical {
+        width: 8px;
+    }
+ 
+    &::-webkit-scrollbar:horizontal {
+        height: 10px;
+    }
+ 
+    &::-webkit-scrollbar-thumb {
+        background-color: $primary;
+        border-radius: 20px;
+    }
 }
 
 .journal__entry{
