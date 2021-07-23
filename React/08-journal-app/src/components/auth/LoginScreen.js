@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 
 export const LoginScreen = () => {
     return (
@@ -41,8 +41,9 @@ export const LoginScreen = () => {
                 </div>
                 <Link 
                     to="/auth/register"
+                    className="link"
                 >
-                    Registrarse
+                    Registrarse aquí
                 </Link>
             </form>
         </>
