@@ -3,7 +3,7 @@ import { JournalEntries } from './JournalEntries'
 
 export const Sidebar = () => {
     return (
-        <aside className = "journal__sidebar">
+        <nav className = "journal__sidebar">
             <div className="journal__sidebar-navbar">
                 <h3 className = "mt-5">
                     <i className="fa fa-moon"></i>
@@ -11,7 +11,7 @@ export const Sidebar = () => {
                 </h3>
 
                 <button className="btn">
-                    Logout
+                    Cerrar sesión
                 </button>
             </div>
             <div className="journal__new-entry">
@@ -19,6 +19,6 @@ export const Sidebar = () => {
                 <p className = "mt-5">Nueva entrada</p>
             </div>
             <JournalEntries/>
-        </aside>
+        </nav>
     )
 }
