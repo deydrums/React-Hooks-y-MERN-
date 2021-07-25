@@ -5,7 +5,7 @@ export const LoadingScreen = () => {
         <div>
             <div className="auth__main">
                 <div className="auth__loading">
-                <div class="page-loader">
+                <div className="page-loader">
                     <div></div>
                     <div></div>
                     <div></div>
