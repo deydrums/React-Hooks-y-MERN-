@@ -8,6 +8,7 @@ import {
     Redirect
   } from "react-router-dom";
 import { login } from '../actions/auth';
+import { LoadingScreen } from '../components/auth/LoadingScreen';
 import { JournalScreen } from '../components/journal/JournalScreen';
 import { AuthRouter } from './AuthRouter';
 
@@ -33,7 +34,7 @@ export const AppRouter = () => {
 
     if(cheking){
         return (
-            <h1>Espere...</h1>
+            <LoadingScreen></LoadingScreen>
         )
     }
 
