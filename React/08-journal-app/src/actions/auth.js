@@ -3,9 +3,13 @@ import { types } from "../types/types";
 
 export const startLoginEmailPassword = (email,password) =>{
     return (dispatch) => {
-        setTimeout(() => {
-            dispatch(login(123,'Pedro'));
-        }, 3500);
+        firebase.auth().signInWithEmailAndPassword(email, password)
+            .then(({user}) => {
+                dispatch(login(user.uid,user.displayName));
+            })
+            .catch(e => {
+                console.log(e);
+            });
     }
 }
 
@@ -14,7 +18,6 @@ export const startRegisterEmailPasswordName = (email, password, name) => {
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .then(async({user}) =>{
                 await user.updateProfile({displayName: name});
-                console.log(user);
                 dispatch(
                     login(user.uid, user.displayName)
                 );
