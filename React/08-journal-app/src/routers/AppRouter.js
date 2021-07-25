@@ -1,5 +1,5 @@
 import firebase from 'firebase';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import {
     HashRouter as Router,
@@ -13,16 +13,30 @@ import { AuthRouter } from './AuthRouter';
 
 export const AppRouter = () => {
     const dispatch = useDispatch();
+    const [cheking, setCheking] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged((user) => {
             if(user?.uid){
                 dispatch(login(user.uid, user.displayName));
+                setIsLoggedIn(true);
+            }else{
+                setIsLoggedIn(false);
             };
+            setCheking(false);
         });
         
-    }, []);
-    
+    }, [dispatch, setCheking, setIsLoggedIn]);
+
+    if(cheking){
+        return (
+            <h1>Espere...</h1>
+        )
+    }
+
     return (
         <Router>
             <Switch>
