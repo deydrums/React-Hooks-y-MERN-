@@ -1,9 +1,13 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import {Link} from 'react-router-dom';
 import validator from 'validator';
+import { removeError, setError } from '../../actions/ui';
 import { useForm } from '../../hooks/useForm';
 
 export const RegisterScreen = () => {
+
+    const dispatch = useDispatch();
 
     const [formValues, handleInputChange, reset] = useForm({
         name: 'admin',
@@ -23,15 +27,16 @@ export const RegisterScreen = () => {
 
     const isFormValid = () =>{
         if(name.trim().length ===0){
-            console.log('nombre invalido');
+            dispatch(setError('Nombre invalido'));
             return false;
         }else if(!validator.isEmail(email)){
-            console.log('email invalido');
+            dispatch(setError('Email invalido'));
             return false;
         }else if (password !== password2 || password.length < 5){
-            console.log('La contraseña debe tener mas de 4 caracteres')
+            dispatch(setError('Contraseñas no coinciden (deben ser mayor a 4 caracteres)'));
             return false;
         }
+        dispatch(removeError());
         return true;
     };
 
