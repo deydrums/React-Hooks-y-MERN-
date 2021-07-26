@@ -22,7 +22,7 @@ export const JournalEntry = ({id, date, title, body, url}) => {
     return (
         <div className="journal__entry pointer" onClick={handleEntryClick}>
             {
-                url &&
+                url ?
                 <div 
                     className="journal__entry-picture"
                     style = {{
@@ -30,7 +30,15 @@ export const JournalEntry = ({id, date, title, body, url}) => {
                         backgroundImage: `url(${url})`
                     }}
                 >
-            
+                </div>
+                :
+                <div 
+                className="journal__entry-picture"
+                style = {{
+                    backgroundSize: 'cover',
+                    backgroundImage: `url(https://res.cloudinary.com/deydrums/image/upload/v1627331373/sqnqxbarfcnaid2bkoah.png)`
+                }}
+                >
                 </div>
             }
             <div className="journal__entry-body">

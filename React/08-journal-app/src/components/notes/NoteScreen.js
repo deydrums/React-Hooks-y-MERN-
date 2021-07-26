@@ -50,7 +50,7 @@ export const NoteScreen = () => {
                         (note.url) &&
                         <div className = "notes__image">
                             <img 
-                                src = "https://deydrums.com/proyectos/react-hereosapp/static/media/marvel-iron.b394df11.jpg"
+                                src = {note.url}
                                 alt = "image"
                             />
                         </div>
