@@ -7,6 +7,6 @@ export const ErrTrad = (code) =>{
         case 'auth/email-already-in-use':
             return 'El usuario ya está en uso'
         default:
-        return code;
+        return 'Intenta de nuevo';
     }
 };

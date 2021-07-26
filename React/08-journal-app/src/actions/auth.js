@@ -39,12 +39,18 @@ export const startRegisterEmailPasswordName = (email, password, name) => {
 
 export const startGoogleLogin = () =>{
     return (dispatch) => {
+        dispatch(startLoading());
         firebase.auth().signInWithPopup(googleAuthProvider)
             .then(({user}) =>{
                 dispatch(
                     login(user.uid, user.displayName)
                 )
-            });
+                dispatch(finishLoading())
+            })
+            .catch(e => {
+                Swal.fire('Ha ocurrido un error',ErrTrad(e.code), 'error');
+                dispatch(finishLoading())
+            });;
     }
 };
 
