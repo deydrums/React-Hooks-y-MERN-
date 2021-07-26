@@ -1,4 +1,6 @@
+import Swal from 'sweetalert2';
 import {firebase, googleAuthProvider } from '../firebase/firebase-config';
+import { ErrTrad } from '../helpers/ErrTrad';
 import { types } from "../types/types";
 import { finishLoading, startLoading } from './ui';
 
@@ -11,8 +13,8 @@ export const startLoginEmailPassword = (email,password) =>{
                 dispatch(finishLoading());
             })
             .catch(e => {
-                console.log(e);
                 dispatch(finishLoading());
+                Swal.fire('Ha ocurrido un error',ErrTrad(e.code), 'error');
             });
     }
 };
@@ -26,8 +28,9 @@ export const startRegisterEmailPasswordName = (email, password, name) => {
                     login(user.uid, user.displayName)
                 );
             })
-            .catch((err) =>{
-                console.log(err);
+            .catch(e => {
+                dispatch(finishLoading());
+                Swal.fire('Ha ocurrido un error',ErrTrad(e.code), 'error');
             });
     }
     
