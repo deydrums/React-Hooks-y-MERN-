@@ -93,7 +93,7 @@
 
 
 .journal__entry-body {
-    width: 50%;
+    width: 53%;
     padding: 10px;
 }
 
@@ -108,11 +108,13 @@
 
 .journal__entry-date-box {
     width: 10%;
-    align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 5px;
+    align-items: center;
+    padding-right: 10px;
+    margin-left: 0;
+    padding-left: 0;
 }
 
 .journal__entry-date-box span{
