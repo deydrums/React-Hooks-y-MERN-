@@ -36,7 +36,7 @@ export const JournalEntry = ({id, date, title, body, url}) => {
                 className="journal__entry-picture"
                 style = {{
                     backgroundSize: 'cover',
-                    backgroundImage: `url(https://res.cloudinary.com/deydrums/image/upload/v1627331373/sqnqxbarfcnaid2bkoah.png)`
+                    backgroundColor: 'rgba(102, 250, 193, 0.699)'
                 }}
                 >
                 </div>

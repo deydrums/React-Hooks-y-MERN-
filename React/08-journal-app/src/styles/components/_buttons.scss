@@ -15,6 +15,17 @@
         color: darken($color: white, $amount: 10);
     }
 }
+.btn-danger{
+    background-color:rgba(0, 0, 0, 0.705);
+    width: 17%;
+    margin: 0 auto;
+    color: white;
+    transition: all 0.3s linear;
+    &:hover{
+        color: rgba(0, 0, 0, 0.705);
+        background-color: rgb(255, 173, 173);
+    }
+}
 
 .btn-primary{
     background-color: $primary;
