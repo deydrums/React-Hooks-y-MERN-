@@ -14,18 +14,19 @@ export const Sidebar = () => {
     }
     return (
         <nav className = "journal__sidebar">
-            <div className="journal__sidebar-navbar">
-                <h3 className = "mt-5">
-                    <i className="fa fa-moon"></i>
-                    <span>{name}</span>
-                </h3>
-
+            <div className="journal__sidebar-btnlogout">
                 <button 
                     className="btn"
                     onClick = {handleLogout}
                 >
                     Cerrar sesión
                 </button>
+            </div>
+            <div className="journal__sidebar-navbar">
+                <i className="fa fa-moon"></i>
+                <h3>
+                    <span> {name}</span>
+                </h3>
             </div>
             <div className="journal__new-entry">
                 <i className="far fa-calendar-plus fa-5x"></i>
