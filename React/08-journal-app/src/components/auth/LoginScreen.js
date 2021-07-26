@@ -34,7 +34,6 @@ export const LoginScreen = () => {
                     name = "email"
                     className="auth__input"
                     autoComplete="off"
-                    value = {email}
                     onChange={handleInputChange}
                 />
                 <input
@@ -42,7 +41,6 @@ export const LoginScreen = () => {
                     placeholder="Password..."
                     name = "password"
                     className="auth__input"
-                    value = {password}
                     onChange={handleInputChange}
                 />
                 <button

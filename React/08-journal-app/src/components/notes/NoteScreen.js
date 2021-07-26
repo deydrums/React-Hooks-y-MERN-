@@ -9,7 +9,6 @@ export const NoteScreen = () => {
     const dispatch = useDispatch();
     const {active: note} = useSelector(state => state.notes);
     const [formValues, handleInputChange, reset] = useForm(note);
-    
     const activeId = useRef(note.id);
     useEffect(() => {
         if(note.id !== activeId.current){
