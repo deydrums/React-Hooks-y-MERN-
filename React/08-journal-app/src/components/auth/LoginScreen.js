@@ -9,8 +9,8 @@ export const LoginScreen = () => {
     const dispatch = useDispatch();
     const {loading} = useSelector(state =>state.ui);
     const [formValues, handleInputChange, reset] = useForm({
-        email: 'admin@admin.com',
-        password: '123456'
+        email: '',
+        password: ''
     });
 
     const {email, password} = formValues;
@@ -35,6 +35,7 @@ export const LoginScreen = () => {
                     className="auth__input"
                     autoComplete="off"
                     onChange={handleInputChange}
+                    value = {email}
                 />
                 <input
                     type="password"
@@ -42,6 +43,7 @@ export const LoginScreen = () => {
                     name = "password"
                     className="auth__input"
                     onChange={handleInputChange}
+                    value = {password}
                 />
                 <button
                     type="submit"

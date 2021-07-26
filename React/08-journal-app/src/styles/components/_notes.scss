@@ -1,7 +1,7 @@
 .notes__main-content {
     display: flex;
     flex-direction: column;
-    height: 90%;
+    height: 90vh;
 }
 
 
@@ -42,7 +42,7 @@
     border: none;
     color: $dark-grey;
     font-size: 20px;
-    flex: 1 1 auto;
+    height: 150px;
     resize: none;
 }
 
@@ -55,4 +55,11 @@
 
 .notes__image img:hover {
     transform: scale(1.03);
+}
+
+
+@media only screen and (max-width: 600px) {
+    .notes__textarea {
+        height: 250px;
+    }
 }

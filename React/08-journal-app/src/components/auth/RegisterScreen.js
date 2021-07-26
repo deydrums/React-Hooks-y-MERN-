@@ -12,10 +12,10 @@ export const RegisterScreen = () => {
     const {msgError} = useSelector(state =>state.ui);
 
     const [formValues, handleInputChange, reset] = useForm({
-        name: 'admin',
-        email: 'admin@admin.com',
-        password: '123456',
-        password2: '123456'
+        name: '',
+        email: '',
+        password: '',
+        password2: ''
     });
 
     const {name, email, password, password2} = formValues;
@@ -59,6 +59,7 @@ export const RegisterScreen = () => {
                     className="auth__input"
                     autoComplete="off"
                     onChange = {handleInputChange}
+                    value = {name}
                 />
                 <input
                     type="text"
@@ -67,6 +68,7 @@ export const RegisterScreen = () => {
                     className="auth__input"
                     autoComplete="off"
                     onChange = {handleInputChange}
+                    value = {email}
                 />
                 <input
                     type="password"
@@ -74,6 +76,7 @@ export const RegisterScreen = () => {
                     name = "password"
                     className="auth__input"
                     onChange = {handleInputChange}
+                    value = {password}
                 />
                 <input
                     type="password"
@@ -81,6 +84,7 @@ export const RegisterScreen = () => {
                     name = "password2"
                     className="auth__input"
                     onChange = {handleInputChange}
+                    value = {password2}
                 />
                 <button
                     type="submit"
