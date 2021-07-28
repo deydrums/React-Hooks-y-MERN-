@@ -1,9 +1,12 @@
 import React from 'react'
+import { store } from './store/store';
+import { AppRouter } from './routers/AppRouter'
+import {Provider} from 'react-redux';
 
 export const CalendarApp = () => {
     return (
-        <div>
-            <h1>Hola Mundo</h1>
-        </div>
+        <Provider store={store}>
+            <AppRouter/>
+        </Provider>
     )
 }
