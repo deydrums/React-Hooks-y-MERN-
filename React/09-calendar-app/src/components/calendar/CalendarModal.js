@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import moment from 'moment';
 import { useForm } from '../../hooks/useForm';
+import Swal from 'sweetalert2';
 
 const customStyles = {
     content: {
@@ -21,6 +22,7 @@ const nowPlus1 = moment().minutes(0).seconds(0).add(2,'hours').format("YYYY-MM-D
 
 export const CalendarModal = () => {
 
+    const [titleValid, settitleValid] = useState(true);
     const [formValues, handleInputChange, reset] = useForm({
         title: 'Evento',
         notes: '123456',
@@ -32,11 +34,25 @@ export const CalendarModal = () => {
 
     
     const closeModal = () => {
+        //Todo: cerrar el modal
     }
 
     const handleSubmitForm = (e) => {
         e.preventDefault();
-        console.log(formValues);
+        const momentStart = moment(start);
+        const momentEnd = moment(end);
+
+        if(momentStart.isSameOrAfter(momentEnd)){
+            return Swal.fire('Error','La fecha de finalización debe de ser mayor a la de inicio','error');
+        }
+
+        if(title.trim().length<1){
+            return settitleValid(false);
+        }
+
+        settitleValid(true);
+        closeModal();
+        
     }
 
     return (
@@ -85,7 +101,7 @@ export const CalendarModal = () => {
                     <label>Titulo y notas</label>
                     <input 
                         type="text" 
-                        className="form-control"
+                        className={`form-control ${!titleValid && 'is-invalid'}`}
                         placeholder="Título del evento"
                         name="title"
                         autoComplete="off"
