@@ -4,6 +4,9 @@ import Modal from 'react-modal';
 import moment from 'moment';
 import { useForm } from '../../hooks/useForm';
 import Swal from 'sweetalert2';
+import { useDispatch, useSelector } from 'react-redux';
+import { uiCloseModal} from '../../actions/ui';
+
 
 const customStyles = {
     content: {
@@ -21,6 +24,8 @@ const now = moment().minutes(0).seconds(0).add(1,'hours').format("YYYY-MM-DDTHH:
 const nowPlus1 = moment().minutes(0).seconds(0).add(2,'hours').format("YYYY-MM-DDTHH:mm");
 
 export const CalendarModal = () => {
+    const dispatch = useDispatch();
+    const {modalOpen} = useSelector(state =>state.ui);
 
     const [titleValid, settitleValid] = useState(true);
     const [formValues, handleInputChange, reset] = useForm({
@@ -34,7 +39,7 @@ export const CalendarModal = () => {
 
     
     const closeModal = () => {
-        //Todo: cerrar el modal
+        dispatch(uiCloseModal());
     }
 
     const handleSubmitForm = (e) => {
@@ -57,7 +62,7 @@ export const CalendarModal = () => {
 
     return (
         <Modal
-            isOpen={true}
+            isOpen={modalOpen}
             // onAfterOpen={afterOpenModal}
             onRequestClose={closeModal}
             style={customStyles}

@@ -8,6 +8,9 @@ import { messages } from '../../helpers/calendar-messages-es';
 import 'moment/locale/es';
 import { CalendarEvent } from './CalendarEvent';
 import { CalendarModal } from './CalendarModal';
+import { useDispatch, useSelector } from 'react-redux';
+import { uiOpenModal } from '../../actions/ui';
+
 moment.updateLocale('es', {
     months: 'Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre'.split('_'),
     monthsShort: 'Enero._Feb._Mar_Abr._May_Jun_Jul._Ago_Sept._Oct._Nov._Dec.'.split('_'),
@@ -32,10 +35,12 @@ const events = [{
 
 
 export const CalendarScreen = () => {
+    const dispatch = useDispatch();
+
     const [lastView, setlastView] = useState(localStorage.getItem('lastView')||'month');
 
     const onDoubleClick = (e) => {
-        console.log(e);
+        dispatch(uiOpenModal());
     }
 
     const onSelectEvent = (e) => {
