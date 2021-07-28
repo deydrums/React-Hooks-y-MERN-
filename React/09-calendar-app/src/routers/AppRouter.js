@@ -5,7 +5,8 @@ import {
   HashRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 
 export const AppRouter = () => {
@@ -15,6 +16,7 @@ export const AppRouter = () => {
                 <Switch>
                     <Route exact path="/login" component={LoginScreen}/>
                     <Route exact path="/" component={CalendarScreen}/>
+                    <Redirect to = "/"/>
                 </Switch>
             </div>
         </Router>
