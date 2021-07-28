@@ -7,6 +7,7 @@ import moment from 'moment'
 import { messages } from '../../helpers/calendar-messages-es';
 import 'moment/locale/es';
 import { CalendarEvent } from './CalendarEvent';
+import { CalendarModal } from './CalendarModal';
 moment.updateLocale('es', {
     months: 'Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre'.split('_'),
     monthsShort: 'Enero._Feb._Mar_Abr._May_Jun_Jul._Ago_Sept._Oct._Nov._Dec.'.split('_'),
@@ -77,7 +78,7 @@ export const CalendarScreen = () => {
                 }}
                 />
             </div>
-
+                <CalendarModal/>
         </div>
     )
 }
