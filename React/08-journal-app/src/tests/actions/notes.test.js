@@ -3,7 +3,7 @@
 
 import configureStore from 'redux-mock-store'; //ES6 modules
 import thunk from 'redux-thunk'
-import { startLoadingNotes, startNewNote, startSaveNote } from '../../actions/notes';
+import { startLoadingNotes, startNewNote, startSaveNote, startUploading } from '../../actions/notes';
 import { db } from '../../firebase/firebase-config';
 import { types } from '../../types/types';
 const middlewares = [thunk];
@@ -12,6 +12,13 @@ const mockStore = configureStore(middlewares);
 const initState = {
     auth:{
         uid: 'TESTING',
+    },
+    notes: {
+        active: {
+            id: 'sI9BeywBmpmMyq5lF6Rw',
+            title: 'Hola',
+            body: 'Este es el body'
+        }
     }
 };
 
@@ -87,5 +94,11 @@ describe('Pruebas con las acciones de notes', () => {
     });
     
     
+    // test('startUploading debe de actualizar el url del entry', async() => {
+    //     const file = new File([],'foto.jpg');
+    //     await store.dispatch(startUploading(file));
+    //     const actions = store.getActions();
+    //     console.log(actions);
+    // });
     
 });
