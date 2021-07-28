@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import moment from 'moment';
-import { useForm } from '../../hooks/useForm';
 
 const customStyles = {
     content: {
@@ -20,18 +19,42 @@ const now = moment().minutes(0).seconds(0).add(1,'hours').format("YYYY-MM-DDTHH:
 const nowPlus1 = moment().minutes(0).seconds(0).add(2,'hours').format("YYYY-MM-DDTHH:mm");
 
 export const CalendarModal = () => {
-
-    const [formValues, handleInputChange, reset] = useForm({
+    const [dateStart, setdateStart] = useState(now);
+    const [dateEnd, setdateEnd] = useState(nowPlus1);
+    
+    const [formValues, setformValues] = useState({
         title: 'Evento',
         notes: '123456',
         start: now,
         end: nowPlus1
     });
 
-    const {title, notes, start, end} = formValues;
+    const {notes, title} = formValues;
 
-    
+    const handleInputChange = ({target}) => {
+        setformValues({
+            ...formValues,
+            [target.name]:target.value
+        });
+    }
+
     const closeModal = () => {
+    }
+
+    const handleStartDateChange = (e) => {
+        setdateStart(e.target.value);
+        setformValues({
+            ...formValues,
+            start: e.target.value
+        });
+    }
+
+    const handleEndDateChange = (e) => {
+        setdateEnd(e.target.value);
+        setformValues({
+            ...formValues,
+            end: e.target.value
+        });
     }
 
     const handleSubmitForm = (e) => {
@@ -61,9 +84,9 @@ export const CalendarModal = () => {
                         type="datetime-local"  
                         className="form-control" 
                         placeholder="Fecha inicio" 
-                        name= 'start'
-                        value={start}
-                        onChange={handleInputChange}
+                        name= 'date-start'
+                        value={dateStart}
+                        onChange={handleStartDateChange}
                     />
                 </div>
 
@@ -73,10 +96,10 @@ export const CalendarModal = () => {
                         type="datetime-local"  
                         className="form-control" 
                         placeholder="Fecha inicio" 
-                        name= 'end'
-                        onChange={handleInputChange}
-                        value={end}
-                        min={start}
+                        name= 'date-end'
+                        onChange={handleEndDateChange}
+                        value={dateEnd}
+                        min={dateStart}
                     />
                 </div>
 
