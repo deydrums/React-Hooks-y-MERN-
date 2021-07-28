@@ -1,4 +1,4 @@
-import { login, logout, startLogout } from "../../actions/auth";
+import { login, logout, startLoginEmailPassword, startLogout, startRegisterEmailPasswordName } from "../../actions/auth";
 import { types } from "../../types/types";
 import configureStore from 'redux-mock-store'; //ES6 modules
 import thunk from 'redux-thunk'
@@ -35,6 +35,18 @@ describe('Pruebas en auth', () => {
         expect(actions[0]).toEqual({type: types.logout});
         expect(actions[1]).toEqual({type: types.notesLogoutCleaning});
     });
+    
+    test('startLoginEmailPassword debe de iniciar', async() => {
+        await store.dispatch(startLoginEmailPassword('test@testing.com','123456'));
+        const actions = store.getActions();
+        expect(actions[1]).toEqual({
+            type:types.login,
+            payload: {
+                        uid: expect.any(String),
+                        displayName: null
+                    }    
+        });
+    })
     
     
 });
