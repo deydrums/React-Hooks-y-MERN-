@@ -23,7 +23,10 @@ export const calendarReducer = (state = initialState, action) => {
         case types.eventSetActive:
             return {
                 ...state,
-                activeEvent:action.payload
+                activeEvent:{...action.payload,
+                                start: moment(action.payload.start).format("YYYY-MM-DDTHH:mm"),
+                                end: moment(action.payload.end).format("YYYY-MM-DDTHH:mm"),
+                            }
             }
         case types.eventAddnew:
             return {
