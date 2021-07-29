@@ -32,6 +32,12 @@ export const CalendarScreen = () => {
     const {events} = useSelector(state =>state.calendar);
     const [lastView, setlastView] = useState(localStorage.getItem('lastView')||'month');
 
+    const eventos = events.map((event, i)=>({
+        ...event,
+        start: moment(event.start).toDate(),
+        end: moment(event.end).toDate()
+    }));
+
     const onDoubleClick = (e) => {
         dispatch(uiOpenModal());
     }
@@ -62,7 +68,7 @@ export const CalendarScreen = () => {
             <div className = 'calendar'>
                 <Calendar 
                 localizer={localizer}
-                events={events}
+                events={eventos}
                 startAccessor="start"
                 endAccessor="end"
                 messages = {messages}
