@@ -7,11 +7,10 @@ var app = express();
 app.use(express.static('public'));
 
 //Rutas
-// app.get('/', (req,res)=>{
-//     res.json({
-//         ok: true,
-//     })
-// });
+//Reescribir rutas
+app.use('/api/auth', require('./routes/auth'));
+
+//TODO: CRUD: Eventos
 
 //Escuchar peticiones
 app.listen(process.env.PORT,()=>{
