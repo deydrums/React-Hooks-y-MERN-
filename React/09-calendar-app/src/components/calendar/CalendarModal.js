@@ -6,7 +6,7 @@ import { useForm } from '../../hooks/useForm';
 import Swal from 'sweetalert2';
 import { useDispatch, useSelector } from 'react-redux';
 import { uiCloseModal} from '../../actions/ui';
-import { eventAddNew, eventUnsetActive } from '../../actions/events';
+import { eventAddNew, eventUnsetActive, eventUpdated } from '../../actions/events';
 
 
 const customStyles = {
@@ -66,14 +66,20 @@ export const CalendarModal = () => {
         }
 
         //TODO: realizar grabacion
-        dispatch(eventAddNew({
-            ...formValues,
-            id: new Date().getTime(),
-            user: {
-                _id: 'weyiuoshankld;nf',
-                name: 'Pedro'
-            }
-        }));
+        if(activeEvent){
+            dispatch(eventUpdated(formValues));
+        }else{
+            dispatch(eventAddNew({
+                ...formValues,
+                id: new Date().getTime(),
+                user: {
+                    _id: 'weyiuoshankld;nf',
+                    name: 'Pedro'
+                }
+            }));
+        }
+
+ 
         settitleValid(true);
         closeModal();
         
