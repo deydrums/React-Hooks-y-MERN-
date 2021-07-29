@@ -10,3 +10,7 @@ export const eventSetActive = (event) => ({
     type: types.eventSetActive,
     payload: event
 });
+
+export const eventUnsetActive = () => ({
+    type: types.eventUnsetActive
+});

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import moment from 'moment';
@@ -6,7 +6,7 @@ import { useForm } from '../../hooks/useForm';
 import Swal from 'sweetalert2';
 import { useDispatch, useSelector } from 'react-redux';
 import { uiCloseModal} from '../../actions/ui';
-import { eventAddNew } from '../../actions/events';
+import { eventAddNew, eventUnsetActive } from '../../actions/events';
 
 
 const customStyles = {
@@ -27,9 +27,10 @@ const nowPlus1 = moment().minutes(0).seconds(0).add(2,'hours').format("YYYY-MM-D
 export const CalendarModal = () => {
     const dispatch = useDispatch();
     const {modalOpen} = useSelector(state =>state.ui);
+    const {activeEvent} = useSelector(state =>state.calendar);
 
     const [titleValid, settitleValid] = useState(true);
-    const [formValues, handleInputChange, reset] = useForm({
+    const [formValues, handleInputChange, reset, setValues] = useForm({
         title: 'Evento',
         notes: '123456',
         start: now,
@@ -38,9 +39,17 @@ export const CalendarModal = () => {
 
     const {title, notes, start, end} = formValues;
 
+    useEffect(() => {
+        if(activeEvent) {
+            setValues(activeEvent);
+        }
+    }, [activeEvent,setValues]);
+
     
     const closeModal = () => {
         dispatch(uiCloseModal());
+        dispatch(eventUnsetActive());
+        reset();
     }
 
     const handleSubmitForm = (e) => {
