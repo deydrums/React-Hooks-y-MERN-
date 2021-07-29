@@ -9,31 +9,12 @@
  const router = Router();
  const { getEvents, createEvent, updateEvent, deleteEvent } = require('../controllers/events');
  const { validateJWT } = require('../middlewares/validate-jwt');
- 
- router.get(
-     '/',
-     validateJWT,
-     getEvents
-     );
- 
- router.post(
-    '/',
-    validateJWT,
-    createEvent
-    );
 
+router.use(validateJWT);
 
- router.put(
-    '/:id',
-    validateJWT,
-    updateEvent
-    );
- 
-
-router.delete(
-    '/:id',
-    validateJWT,
-    deleteEvent
-    );
+router.get('/',getEvents);
+router.post('/',createEvent);
+router.put('/:id',updateEvent);
+router.delete('/:id',deleteEvent);
  
  module.exports = router;
