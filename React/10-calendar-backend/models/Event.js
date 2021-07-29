@@ -5,7 +5,7 @@ var EventSchema = Schema({
         type: String,
         required: true,
     },
-    notesActive: {
+    notes: {
         type: String,
     },
     start: {

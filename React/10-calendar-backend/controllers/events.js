@@ -27,7 +27,7 @@ const createEvent = async(req,res = response)=>{
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            ok: true,
+            ok: false,
             msg: 'Ha ocurrido un error, intenta de nuevo'
         });
     }
@@ -36,10 +36,49 @@ const createEvent = async(req,res = response)=>{
 };
 
 const updateEvent = async(req,res = response)=>{
-    res.json({
-        ok: true,
-        msg: 'updateEvent'
-    })
+    const eventId = req.params.id;
+    const uid = req.uid;
+
+    try {
+        const event = await Event.findById(eventId);
+        if(!event) {
+            res.status(404).json({
+                ok: false,
+                msg: 'El evento no existe'
+            });
+            return false;
+        }
+
+
+        if(event.user.toString() !== uid){
+            res.status(401).json({
+                ok: false,
+                msg: 'El evento no puede ser editado porque no te pertenece',
+            });
+            return false;
+        }
+
+        const updateEvent = {
+            ...req.body,
+            user: uid
+        }
+
+        const eventDB = await Event.findByIdAndUpdate(eventId, updateEvent, {new:true});
+
+        res.json({
+            ok: true,
+            msg: 'Evento actualizado con exito', 
+            evento: eventDB
+        });
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Ha ocurrido un error, intenta de nuevo'
+        });
+    }
+
 };
 
 const deleteEvent = async(req,res = response)=>{
