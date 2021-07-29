@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import { useDispatch, useSelector } from 'react-redux';
 import { uiCloseModal} from '../../actions/ui';
 import { eventAddNew, eventUnsetActive, eventUpdated } from '../../actions/events';
+import { DeleteEventFab } from '../ui/DeleteEventFab';
 
 
 const customStyles = {
@@ -42,6 +43,8 @@ export const CalendarModal = () => {
     useEffect(() => {
         if(activeEvent) {
             setValues(activeEvent);
+        }else{
+            reset();
         }
     }, [activeEvent,setValues]);
 
@@ -96,7 +99,18 @@ export const CalendarModal = () => {
             closeTimeoutMS={200}
 
         >
-            <h1> Nuevo evento </h1>
+            <div className="modal-title">
+                
+                {
+                    (activeEvent ? <h2> Editar evento </h2> : <h2> Nuevo evento </h2>)
+                }
+
+                {
+                    (activeEvent && <DeleteEventFab/>)
+                }
+                
+            </div>
+
             <hr />
             <form className="container" onSubmit={handleSubmitForm}>
 
@@ -153,7 +167,7 @@ export const CalendarModal = () => {
                     ></textarea>
                     <small id="emailHelp" className="form-text text-muted">Información adicional</small>
                 </div>
-
+                
                 <button
                     type="submit"
                     className="btn btn-outline-primary btn-block"
@@ -161,7 +175,7 @@ export const CalendarModal = () => {
                     <i className="far fa-save"></i>
                     <span> Guardar</span>
                 </button>
-
+                
             </form>
         </Modal>
     )

@@ -82,3 +82,15 @@ html, body{
     position: fixed;
     right: 25px;
 }
+
+.fab-danger{
+    width: 80px;
+    height:35px;
+    font-size: 13px;
+}
+
+.modal-title{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
