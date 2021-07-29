@@ -34,7 +34,7 @@ const createUser = async(req,res = response)=>{
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            ok: true,
+            ok: false,
             msg: 'Ha ocurrido un error, intenta de nuevo'
         })
     }
@@ -76,7 +76,7 @@ const loginUser = async(req,res = response)=>{
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            ok: true,
+            ok: false,
             msg: 'Ha ocurrido un error, intenta de nuevo'
         });
     }

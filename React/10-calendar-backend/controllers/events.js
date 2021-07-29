@@ -70,7 +70,7 @@ const updateEvent = async(req,res = response)=>{
             msg: 'Evento actualizado con exito', 
             evento: eventDB
         });
-        
+
     } catch (error) {
         console.log(error);
         res.status(500).json({
@@ -82,10 +82,44 @@ const updateEvent = async(req,res = response)=>{
 };
 
 const deleteEvent = async(req,res = response)=>{
-    res.json({
-        ok: true,
-        msg: 'deleteEvent'
-    })
+    const eventId = req.params.id;
+    const uid = req.uid;
+
+    try {
+        const event = await Event.findById(eventId);
+        if(!event) {
+            res.status(404).json({
+                ok: false,
+                msg: 'El evento no existe'
+            });
+            return false;
+        }
+
+
+        if(event.user.toString() !== uid){
+            res.status(401).json({
+                ok: false,
+                msg: 'El evento no puede ser editado porque no te pertenece',
+            });
+            return false;
+        }
+
+
+        const eventDB = await Event.findByIdAndDelete(eventId);
+
+        res.json({
+            ok: true,
+            msg: 'Evento eliminado con exito', 
+            evento: eventDB
+        });
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Ha ocurrido un error, intenta de nuevo'
+        });
+    }
 };
 
 module.exports = {
