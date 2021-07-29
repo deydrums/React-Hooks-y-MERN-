@@ -10,7 +10,7 @@ import { CalendarEvent } from './CalendarEvent';
 import { CalendarModal } from './CalendarModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { uiOpenModal } from '../../actions/ui';
-import { eventSetActive } from '../../actions/events';
+import { eventSetActive, eventUnsetActive } from '../../actions/events';
 import { AddNewFab } from '../ui/AddNewFab';
 
 moment.updateLocale('es', {
@@ -50,6 +50,12 @@ export const CalendarScreen = () => {
         setlastView(e);
         localStorage.setItem('lastView',e);
     }
+
+
+    const onSelectSlot = (e) => {
+        dispatch(eventUnsetActive());
+    }
+
     const eventStyleGetter = (event, start, end, isSelected) =>{
         const style ={
             backgroundColor: '#367CF7',
@@ -77,6 +83,8 @@ export const CalendarScreen = () => {
                 onSelectEvent = {onSelectEvent}
                 onView = {onViewChange}
                 view ={lastView}
+                onSelectSlot = {onSelectSlot}
+                selectable = {true}
                 components={{
                     event: CalendarEvent
                 }}
