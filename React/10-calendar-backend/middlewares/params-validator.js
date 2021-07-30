@@ -9,6 +9,7 @@ const paramsValidator = (req, res = response, next) => {
     if(!errors.isEmpty()){
         return res.status(400).json({
             ok: false,
+            message: 'Ha ocurrido un error de validación, comprueba los datos e intenta nuevamente.',
             errors: errors.mapped()
         });
     };

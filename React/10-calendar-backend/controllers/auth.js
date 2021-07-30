@@ -10,7 +10,7 @@ const createUser = async(req,res = response)=>{
         if(user){
             return res.status(400).json({
                 ok: false,
-                msg: 'El correo ya fue registrado anteriormente'
+                message: 'El correo ya fue registrado anteriormente'
             });
         };
         user = new User(req.body);
@@ -25,7 +25,7 @@ const createUser = async(req,res = response)=>{
     
         res.status(201).json({
             ok: true,
-            msg: 'Registro de usuario exitoso',
+            message: 'Registro de usuario exitoso',
             uid: user.id,
             name: user.name,
             token
@@ -35,7 +35,7 @@ const createUser = async(req,res = response)=>{
         console.log(error);
         res.status(500).json({
             ok: false,
-            msg: 'Ha ocurrido un error, intenta de nuevo'
+            message: 'Ha ocurrido un error, intenta de nuevo'
         })
     }
 }
@@ -48,7 +48,7 @@ const loginUser = async(req,res = response)=>{
         if(!user){
             return res.status(404).json({
                 ok: false,
-                msg: 'Usuario no encontrado'
+                message: 'Usuario no encontrado'
             });
         };
 
@@ -57,7 +57,7 @@ const loginUser = async(req,res = response)=>{
         if(!validPassword){
             return res.status(400).json({
                 ok: false,
-                msg: 'Password incorrecto'
+                message: 'Password incorrecto'
             });
         };
 
@@ -66,7 +66,7 @@ const loginUser = async(req,res = response)=>{
 
         res.status(200).json({
             ok: true,
-            msg: 'Login correcto',
+            message: 'Login correcto',
             uid: user.id,
             name: user.name,
             token
@@ -77,7 +77,7 @@ const loginUser = async(req,res = response)=>{
         console.log(error);
         res.status(500).json({
             ok: false,
-            msg: 'Ha ocurrido un error, intenta de nuevo'
+            message: 'Ha ocurrido un error, intenta de nuevo'
         });
     }
 }
@@ -91,7 +91,7 @@ const renewToken = async(req,res = response)=>{
 
     res.json({
         ok: true,
-        msg: 'Nuevo token generado',
+        message: 'Nuevo token generado',
         token
     })
 }

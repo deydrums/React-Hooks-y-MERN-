@@ -9,7 +9,8 @@ const fetchWithoutToken = (endpoint, data, method = 'GET') => {
         return fetch(url,{
             method,
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
             },
             body: JSON.stringify(data)
         });
