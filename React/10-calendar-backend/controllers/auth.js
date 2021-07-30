@@ -92,6 +92,8 @@ const renewToken = async(req,res = response)=>{
     res.json({
         ok: true,
         message: 'Nuevo token generado',
+        uid,
+        name,
         token
     })
 }
