@@ -1,7 +1,26 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { startLogin } from '../../actions/auth';
+import { useForm } from '../../hooks/useForm';
 import './login.css';
 
+
 export const LoginScreen = () => {
+
+    const dispatch = useDispatch();
+
+    const [formLoginValues, handleLoginInputChange, reset] = useForm({
+        lemail: 'dagarcia100@gmail.com',
+        lpassword: '123456'
+    });
+
+    const{ lemail, lpassword } = formLoginValues;
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        dispatch(startLogin(lemail, lpassword));
+    }
+
     return (
         
         <div className="principal-login-container">
@@ -9,12 +28,15 @@ export const LoginScreen = () => {
                 <div className="row">
                     <div className="col-md-6 login-form-1">
                         <h3>Ingreso</h3>
-                        <form>
+                        <form onSubmit={handleLogin}>
                             <div className="form-group">
                                 <input 
                                     type="text"
                                     className="form-control"
                                     placeholder="Correo"
+                                    name="lemail"
+                                    value={lemail}
+                                    onChange={handleLoginInputChange}
                                 />
                             </div>
                             <div className="form-group">
@@ -22,6 +44,9 @@ export const LoginScreen = () => {
                                     type="password"
                                     className="form-control"
                                     placeholder="Contraseña"
+                                    name="lpassword"
+                                    value={lpassword}
+                                    onChange={handleLoginInputChange}
                                 />
                             </div>
                             <div className="form-group">
