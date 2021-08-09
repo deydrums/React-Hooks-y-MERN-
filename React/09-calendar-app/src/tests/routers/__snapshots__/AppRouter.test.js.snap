@@ -21,3 +21,132 @@ exports[`Pruebas en <AppRouter /> Debe de mostrar el loader.... 1`] = `
   </div>
 </div>
 `;
+
+exports[`Pruebas en <AppRouter /> Debe de mostrar la ruta publica.... 1`] = `
+<div>
+  <div
+    className="principal-login-container"
+  >
+    <div
+      className="login-container"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-md-6 login-form-1"
+        >
+          <h3>
+            Ingreso
+          </h3>
+          <form
+            onSubmit={[Function]}
+          >
+            <div
+              className="form-group"
+            >
+              <input
+                className="form-control"
+                name="lemail"
+                onChange={[Function]}
+                placeholder="Correo"
+                type="text"
+                value="dagarcia100@gmail.com"
+              />
+            </div>
+            <div
+              className="form-group"
+            >
+              <input
+                className="form-control"
+                name="lpassword"
+                onChange={[Function]}
+                placeholder="Contraseña"
+                type="password"
+                value="123456"
+              />
+            </div>
+            <div
+              className="form-group"
+            >
+              <input
+                className="btnSubmit"
+                type="submit"
+                value="Login"
+              />
+            </div>
+          </form>
+        </div>
+        <div
+          className="col-md-6 login-form-2"
+        >
+          <h3>
+            Registro
+          </h3>
+          <form
+            onSubmit={[Function]}
+          >
+            <div
+              className="form-group"
+            >
+              <input
+                className="form-control"
+                name="rname"
+                onChange={[Function]}
+                placeholder="Nombre"
+                type="text"
+                value="David"
+              />
+            </div>
+            <div
+              className="form-group"
+            >
+              <input
+                className="form-control"
+                name="remail"
+                onChange={[Function]}
+                placeholder="Correo"
+                type="email"
+                value="dagarcia100@gmail.com"
+              />
+            </div>
+            <div
+              className="form-group"
+            >
+              <input
+                className="form-control"
+                name="rpassword"
+                onChange={[Function]}
+                placeholder="Contraseña"
+                type="password"
+                value="123456"
+              />
+            </div>
+            <div
+              className="form-group"
+            >
+              <input
+                className="form-control"
+                name="rconfirmPassword"
+                onChange={[Function]}
+                placeholder="Repita la contraseña"
+                type="password"
+                value="123456"
+              />
+            </div>
+            <div
+              className="form-group"
+            >
+              <input
+                className="btnSubmit"
+                type="submit"
+                value="Crear cuenta"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
