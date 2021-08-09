@@ -6,7 +6,7 @@ import { useForm } from '../../hooks/useForm';
 import Swal from 'sweetalert2';
 import { useDispatch, useSelector } from 'react-redux';
 import { uiCloseModal} from '../../actions/ui';
-import { eventAddNew, eventUnsetActive, eventUpdated } from '../../actions/events';
+import { eventStartAddNew, eventUnsetActive, eventUpdated } from '../../actions/events';
 import { DeleteEventFab } from '../ui/DeleteEventFab';
 
 
@@ -72,14 +72,7 @@ export const CalendarModal = () => {
         if(activeEvent){
             dispatch(eventUpdated(formValues));
         }else{
-            dispatch(eventAddNew({
-                ...formValues,
-                id: new Date().getTime(),
-                user: {
-                    _id: 'weyiuoshankld;nf',
-                    name: 'Pedro'
-                }
-            }));
+            dispatch(eventStartAddNew(formValues));
         }
 
  

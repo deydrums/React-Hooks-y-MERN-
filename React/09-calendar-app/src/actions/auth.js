@@ -8,7 +8,7 @@ export const startLogin = (email, password) => {
     return async(dispatch) => {
         const resp = await fetchWithoutToken('auth',{email,password},'POST');
         const body = await resp.json();
-        console.log(body);
+        //console.log(body);
         if(resp.ok) {
             localStorage.setItem('token',body.token);
             localStorage.setItem('token-init-date', new Date().getTime());
@@ -26,7 +26,7 @@ export const startRegister = (name, email, password) => {
     return async(dispatch) => {
         const resp = await fetchWithoutToken('auth/new',{name,email,password},'POST');
         const body = await resp.json();
-        console.log(body);
+        //console.log(body);
         if(resp.ok) {
             localStorage.setItem('token',body.token);
             localStorage.setItem('token-init-date', new Date().getTime());
