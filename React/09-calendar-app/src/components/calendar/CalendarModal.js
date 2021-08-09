@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import moment from 'moment';
 import { useForm } from '../../hooks/useForm';
 import Swal from 'sweetalert2';
 import { useDispatch, useSelector } from 'react-redux';
 import { uiCloseModal} from '../../actions/ui';
-import { eventStartAddNew, eventUnsetActive, eventUpdated } from '../../actions/events';
+import { eventStartAddNew, eventStartUpdate, eventUnsetActive} from '../../actions/events';
 import { DeleteEventFab } from '../ui/DeleteEventFab';
 
 
@@ -70,7 +69,7 @@ export const CalendarModal = () => {
 
         //TODO: realizar grabacion
         if(activeEvent){
-            dispatch(eventUpdated(formValues));
+            dispatch(eventStartUpdate(formValues));
         }else{
             dispatch(eventStartAddNew(formValues));
         }
