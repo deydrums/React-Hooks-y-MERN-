@@ -20,7 +20,10 @@ const customStyles = {
     },
   };
 
-Modal.setAppElement('#root');
+  if(process.env.NODE_ENV !== 'test') {
+    Modal.setAppElement('#root');
+  }
+
 const now = moment().minutes(0).seconds(0).add(1,'hours').format("YYYY-MM-DDTHH:mm");
 const nowPlus1 = moment().minutes(0).seconds(0).add(2,'hours').format("YYYY-MM-DDTHH:mm");
 

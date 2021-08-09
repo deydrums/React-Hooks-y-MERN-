@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <AppRouter /> Debe de mostrar el loader.... 1`] = `
+<div
+  className="loading"
+>
+  <div
+    className="auth__main"
+  >
+    <div
+      className="auth__loading"
+    >
+      <div
+        className="page-loader"
+      >
+        <div />
+        <div />
+        <div />
+      </div>
+    </div>
+  </div>
+</div>
+`;
