@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Navbar } from '../ui/Navbar'
 // the imports
 import { Calendar, momentLocalizer  } from 'react-big-calendar' 
@@ -10,7 +10,7 @@ import { CalendarEvent } from './CalendarEvent';
 import { CalendarModal } from './CalendarModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { uiOpenModal } from '../../actions/ui';
-import { eventSetActive, eventUnsetActive } from '../../actions/events';
+import { eventSetActive, eventStartLoading, eventUnsetActive } from '../../actions/events';
 import { AddNewFab } from '../ui/AddNewFab';
 
 moment.updateLocale('es', {
@@ -31,6 +31,13 @@ export const CalendarScreen = () => {
     //TODO leer del store, los eventos
     const {events} = useSelector(state =>state.calendar);
     const [lastView, setlastView] = useState(localStorage.getItem('lastView')||'month');
+
+
+
+    useEffect(() => {
+        dispatch(eventStartLoading());
+    }, [dispatch])
+    
 
     const eventos = events.map((event, i)=>({
         ...event,
