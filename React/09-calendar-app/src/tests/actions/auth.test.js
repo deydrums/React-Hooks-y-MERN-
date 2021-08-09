@@ -2,8 +2,10 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import Swal from 'sweetalert2';
 import '@testing-library/jest-dom';
-import { startLogin } from '../../actions/auth';
+import { startLogin, startRegister } from '../../actions/auth';
 import { types } from '../../types/types';
+import * as fetchModule from '../../helpers/fetch';
+
 
 jest.mock('sweetalert2', () => ({
     fire: jest.fn()
@@ -51,6 +53,39 @@ describe('Pruebas en las acciones del Auth', () => {
         actions = store.getActions();
         expect(Swal.fire).toHaveBeenCalledWith("Error", "Usuario no encontrado", "error");
 
+    });
+
+
+    test('Start register correcto', async() => {
+
+        fetchModule.fetchWithoutToken = jest.fn(() => ({
+            json() {
+                return {
+                    ok: true,
+                    uid: '123',
+                    name: 'carlos',
+                    token: 'ABC123ABC123'
+                }
+            }
+        }));
+
+
+        await store.dispatch(startRegister('test','test@test.com', '123456'));
+        const actions = store.getActions();
+        //console.log(actions);
+
+        // expect( actions[0] ).toEqual({
+        //     type: types.authLogin,
+        //     payload: {
+        //         uid: '123',
+        //         name: 'carlos'
+        //     }
+        // })
+ 
+        // expect( localStorage.setItem ).toHaveBeenCalledWith('token', 'ABC123ABC123' );
+        // expect( localStorage.setItem ).toHaveBeenCalledWith('token-init-date', expect.any(Number) );
+
+        
     });
     
 
