@@ -1,8 +1,13 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import Swal from 'sweetalert2';
 import '@testing-library/jest-dom';
 import { startLogin } from '../../actions/auth';
 import { types } from '../../types/types';
+
+jest.mock('sweetalert2', () => ({
+    fire: jest.fn()
+}))
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -34,6 +39,18 @@ describe('Pruebas en las acciones del Auth', () => {
         // const token = localStorage.setItem.mock.calls[0][1];
         // console.log(token);
         
+    });
+    
+    test('StartLogin incorrecto', async() => {
+        await store.dispatch(startLogin('dagarcia100@gmail.com', '1234567'));
+        let actions = store.getActions();
+        expect(actions).toEqual([]);
+        expect(Swal.fire).toHaveBeenCalledWith("Error", "Password incorrecto", "error");
+
+        await store.dispatch(startLogin('dagarcia100@gail.com', '123456'));
+        actions = store.getActions();
+        expect(Swal.fire).toHaveBeenCalledWith("Error", "Usuario no encontrado", "error");
+
     });
     
 
