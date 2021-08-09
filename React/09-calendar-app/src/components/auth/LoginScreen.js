@@ -33,7 +33,7 @@ export const LoginScreen = () => {
     const handleRegister = (e) => {
         e.preventDefault();
         if(rpassword !== rconfirmPassword){
-            return Swal.fire('Erro','Las contraseñas no coinciden','error');
+            return Swal.fire('Error','Las contraseñas no coinciden','error');
         }
         dispatch(startRegister(rname,remail,rpassword));
     }
