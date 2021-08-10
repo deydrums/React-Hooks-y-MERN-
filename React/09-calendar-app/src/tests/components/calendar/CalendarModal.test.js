@@ -122,9 +122,10 @@ describe('Pruebas en CalendarModal', () => {
         wrapper.find('form').simulate('submit',{preventDefault(){}});
 
         expect(eventStartAddNew).toHaveBeenCalled();
-
+        expect(eventUnsetActive).toHaveBeenCalled();
 
     });
+
     
     
     
