@@ -9,11 +9,12 @@ import thunk from 'redux-thunk';
 
 import '@testing-library/jest-dom';
 import { CalendarModal } from '../../../components/calendar/CalendarModal';
-import { eventStartUpdate, eventUnsetActive } from '../../../actions/events';
+import { eventStartUpdate, eventUnsetActive, eventStartAddNew } from '../../../actions/events';
 
 jest.mock( '../../../actions/events', () => ({
     eventStartUpdate: jest.fn(),
-    eventUnsetActive: jest.fn()
+    eventUnsetActive: jest.fn(),
+    eventStartAddNew: jest.fn(),
 }));
 
 
@@ -82,6 +83,46 @@ describe('Pruebas en CalendarModal', () => {
         
         wrapper.find('form').simulate('submit',{preventDefault(){}});
         expect(wrapper.find('input[name="title"]').hasClass('is-invalid')).toBe(false);
+
+    });
+    
+    test('Debe de crear un nuevo evento ', () => {
+        
+        const initState = {
+            calendar: {
+                events: [],
+                activeEvent: null,
+            },
+            auth: {
+                uid: '123',
+                name: 'user'
+            },
+            ui:{
+                modalOpen: true
+            }
+        };
+
+        const store = mockStore(initState);
+        store.dispatch = jest.fn();
+
+
+        const wrapper = mount(
+            <Provider store = {store} >
+                <CalendarModal/>
+            </Provider>
+        )
+
+        wrapper.find('input[name="title"]').simulate('change' ,{
+            target: {
+                name: 'title',
+                value: 'Hello test'
+            }
+        });
+
+        wrapper.find('form').simulate('submit',{preventDefault(){}});
+
+        expect(eventStartAddNew).toHaveBeenCalled();
+
 
     });
     
