@@ -92,6 +92,7 @@ export const CalendarModal = () => {
             className="modal"
             overlayClassName="modal-fondo"
             closeTimeoutMS={200}
+            ariaHideApp={!process.env.NODE_ENV === 'test'}
 
         >
             <div className="modal-title">
